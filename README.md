@@ -39,5 +39,6 @@ Configulator supports 5 ways to populate it's internal storage with configuratio
 * JSON
 * YAML
 * INI
+
 When loading from a file, you have the option of using "configuration profiles", which would like be tied to your environment, such as "production" or "development"
 
