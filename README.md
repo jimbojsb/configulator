@@ -6,7 +6,7 @@ Configulator is a very lightweight configuation management and service locator f
 Configulator requires [Composer](http://getcomposer.org) and does not provide it's own autoloader. It is available on Packagist [here](https://packagist.org/packages/jimbojsb/configulator). You'll be adding something similar to this to your composer.json file in your project:
 
 ```json
-require: {
+"require": {
     "jimbojsb/configulator": "dev-master"
 }
 ```
