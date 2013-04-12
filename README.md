@@ -16,8 +16,6 @@ Configulator can be used in two ways. You can create a new instance of `Configul
 for passing the object around in your existing application code as you see fit and necessary.
 
 ```php
-<?php
-
 // assume here you've at some point require composer's autoloader
 
 use Configulator\Manager;
@@ -40,5 +38,14 @@ Configulator supports 5 ways to populate it's internal storage with configuratio
 * YAML
 * INI
 
-When loading from a file, you have the option of using "configuration profiles", which would like be tied to your environment, such as "production" or "development"
+When loading from a file, you have the option of using "configuration profiles", which would like be tied to your environment, such as "production" or "development". All configuration file types support inheritance of other profiles defined within the file.
 
+```php
+Configulator()->setOptions(['configItem1' => 'configValue1]);
+
+// or
+
+Configulator()->loadFile("/path/to/myconfig.yml", "production");
+```
+
+When using `Configulator()->loadFile()` the second argument is the configuration profile, which is optional. You would likely only use this if you had chosen to structure your config files to take advantage of inheritance.
