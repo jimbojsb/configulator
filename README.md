@@ -48,4 +48,4 @@ Configulator()->setOptions(['configItem1' => 'configValue1']);
 Configulator()->loadFile("/path/to/myconfig.yml", "production");
 ```
 
-When using `Configulator()->loadFile()` the second argument is the configuration profile, which is optional. You would likely only use this if you had chosen to structure your config files to take advantage of inheritance. If you do have profiles in your config files and you do NOT pass a profile argument, you will be returned the entire option set contained within the file WITHOUT the inheritance resolved.
+When using `Configulator()->loadFile()` the second argument is the configuration profile, which is optional. You would likely only use this if you had chosen to structure your config files to take advantage of inheritance. If you do have profiles in your config files and you do _NOT_ pass a profile argument, you will be returned the entire option set contained within the file _WITHOUT_ the inheritance resolved.
