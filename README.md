@@ -1,6 +1,6 @@
 # Configulator
 
-Configulator is a very lightweight configuation management and service locator for PHP projects. It is designed to be somewhat of a poor man's dependency injection container in that the service factories are always passed the managed configuration options as well as the service factories themselves, such that one can achieve simple dependency resolution and configuration of common service needs, such as database connections.
+Configulator is a very lightweight configuation manager and service locator for PHP projects. It is designed to be somewhat of a poor man's dependency injection container in that the service factories are always passed the managed configuration options as well as the service factories themselves, such that one can achieve simple dependency resolution and configuration of common service needs, such as database connections.
 
 ## Getting Configulator
 Configulator requires [Composer](http://getcomposer.org) and does not provide it's own autoloader. It is available on Packagist [here](https://packagist.org/packages/jimbojsb/configulator). You'll be adding something similar to this to your composer.json file in your project:
