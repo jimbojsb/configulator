@@ -41,7 +41,7 @@ Configulator supports 5 ways to populate it's internal storage with configuratio
 When loading from a file, you have the option of using "configuration profiles", which would like be tied to your environment, such as "production" or "development". All configuration file types support inheritance of other profiles defined within the file.
 
 ```php
-Configulator()->setOptions(['configItem1' => 'configValue1]);
+Configulator()->setOptions(['configItem1' => 'configValue1']);
 
 // or
 
