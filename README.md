@@ -34,3 +34,10 @@ All of the remaining examples use this syntax, though the functionality is the s
 
 
 ### Loading config options
+Configulator supports 5 ways to populate it's internal storage with configuration data. You can either directly pass an array of options, or you can load options from one of the following file formats:
+* PHP Array include
+* JSON
+* YAML
+* INI
+When loading from a file, you have the option of using "configuration profiles", which would like be tied to your environment, such as "production" or "development"
+
