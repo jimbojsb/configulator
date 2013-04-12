@@ -30,4 +30,7 @@ Alternatively, Configulator provides a global-namespaced singleton of the manage
 $configulator = Configulator();
 ```
 
+All of the remaining examples use this syntax, though the functionality is the same if you're using the raw manager instance yourself.
 
+
+### Loading config options
