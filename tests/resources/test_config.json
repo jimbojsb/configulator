@@ -1,0 +1,30 @@
+{
+    "production": {
+        "key1": "value1",
+        "key2": {
+            "subkey1": "value2",
+            "subkey2": "value3"
+        },
+        "key3": [
+            "value4",
+            "value5",
+            "value6"
+        ]
+    },
+    "development": {
+        "inherit": "production",
+        "key1": "value7",
+        "key3": [
+            "value8"
+        ],
+        "key2": {
+            "subkey1": "value9"
+        }
+    },
+    "staging": {
+        "inherit": [
+            "production",
+            "development"
+        ]
+    }
+}

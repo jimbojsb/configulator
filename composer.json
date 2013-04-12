@@ -1,0 +1,28 @@
+{
+    "name": "jimbojsb/configulator",
+    "description": "An extremely lightweight configuration and service manager",
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Josh Butts",
+            "email": "josh@joshbutts.com"
+        }
+    ],
+    "require": {
+
+    },
+    "suggest": {
+        "symfony/yaml": "Allows use of the Yaml config file option"
+    },
+    "autoload": {
+        "psr-0": {
+            "Configulator": "src/"
+        },
+        "files": [
+            "src/configulator.php"
+        ]
+    }
+}
