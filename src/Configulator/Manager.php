@@ -3,7 +3,8 @@ namespace Configulator;
 
 use Configulator\ConfigFile\Php,
     Configulator\ConfigFile\Yaml,
-    Configulator\ConfigFile\Ini;
+    Configulator\ConfigFile\Ini,
+    Configulator\ConfigFile\Json;
 
 class Manager implements \ArrayAccess
 {
@@ -50,8 +51,11 @@ class Manager implements \ArrayAccess
                 return $this->options = Php::getOptions($file);
             case "ini":
                 return $this->options = Ini::getOptions($file);
-             case "yml";
+            case "yaml":
+            case "yml":
                 return $this->options = Yaml::getOptions($file);
+            case "json":
+                return $this->options = Json::getOptions($file);
         }
         throw new \InvalidArgumentException("File type " . $f->getExtension() . " not supported");
     }
@@ -78,12 +82,12 @@ class Manager implements \ArrayAccess
 
     public function offsetSet($offset, $value)
     {
-        $this->options[$offset] = $value;
+        throw new \RuntimeException("Config values are immutable once loaded");
     }
 
     public function offsetUnset($offset)
     {
-        unset($this->options[$offset]);
+        throw new \RuntimeException("Config values are immutable once loaded");
     }
 
 }
