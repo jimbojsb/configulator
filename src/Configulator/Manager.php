@@ -25,12 +25,11 @@ class Manager implements \ArrayAccess
         }
     }
 
-    public function serviceFactory($serviceName, $args = null)
+    public function serviceFactory($serviceName)
     {
         if (is_callable($this->services[$serviceName]['service'])) {
-            array_unshift($args, $this->options);
             $callback = $this->services[$serviceName]['service'];
-            return $callback($args);
+            return $callback($this);
         } else if (is_object($this->services[$serviceName]['service'])) {
             return clone($this->services[$serviceName]['service']);
         } else {
