@@ -67,10 +67,7 @@ Additionally, Configulator has the notion of shared and non-shared services. A s
 Services are first registered with the `register()` method and then created and retrieved by calling the method corresponding to their name.
 
 ```php
-Configulator()->register('mongodb', function($databaseName = null) {
-    if ($databaseName) {
-        return (new MongoClient)->$databaseName;
-    }
+Configulator()->register('mongodb', function() {
     return new MongoClient;
 });
 
