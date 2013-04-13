@@ -84,3 +84,4 @@ $mailer = Configulator()->mailer();
 ```
 
 ## Contributing
+Pull requests are welcome, but should not materially expand the scope of the project.
