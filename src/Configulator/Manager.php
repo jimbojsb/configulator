@@ -44,19 +44,7 @@ class Manager implements \ArrayAccess
 
     public function loadFile($file, $profile = null)
     {
-        $f = new \SplFileObject($file);
-        switch ($f->getExtension()) {
-            case "php":
-                return $this->options = Php::getOptions($file);
-            case "ini":
-                return $this->options = Ini::getOptions($file);
-            case "yaml":
-            case "yml":
-                return $this->options = Yaml::getOptions($file);
-            case "json":
-                return $this->options = Json::getOptions($file);
-        }
-        throw new \InvalidArgumentException("File type " . $f->getExtension() . " not supported");
+        $this->options = ConfigFile::getOptions($file, $profile);
     }
 
     public function register($serviceName, $service, $shared = true)
