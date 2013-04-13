@@ -56,3 +56,7 @@ When using `Configulator()->loadFile()` the second argument is the configuration
 ```php
 $value = Configulator()["configItem1"];
 ```
+
+### Service Factories
+Configulator also manages and locates services within your application. The primary reason to couple this with configuration management is that it becomes trivial to create and configure services with intimiate access to the config options.
+Service factories can either be an instance of an object (not really a factory, since this assumes you've pre-bootstrapped this instance), or a callable which returns the service. Generally, this is going to be an anonymous function. If the factory is a callable, `Configulator\Manager` is passed as the last (usually only) argument to the callable, such that you have access to the entire config as well as the easy ability to resolve service dependencies.
