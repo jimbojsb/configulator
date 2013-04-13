@@ -12,10 +12,7 @@
         }
     ],
     "require": {
-
-    },
-    "suggest": {
-        "symfony/yaml": "Allows use of the Yaml config file option"
+        "symfony/yaml": "~2.1"
     },
     "autoload": {
         "psr-0": {
