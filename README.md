@@ -62,4 +62,25 @@ Configulator also manages and locates services within your application. The prim
 
 Service factories can either be an instance of an object (not really a factory, since this assumes you've pre-bootstrapped this instance), or a callable which returns the service. Generally, this is going to be an anonymous function. If the factory is a callable, `Configulator\Manager` is passed as the last (usually only) argument to the callable, such that you have access to the entire config as well as the easy ability to resolve service dependencies.
 
-Additionally, Configulator has the notion of shared and non-shared services. A shared service is a singleton instance of the service object which is lazy-instantiated on the first request for it and cached for future calls. A non-shared service returns a new instance from the factory callable on every request for it. If you register an pre-fabricated instance instead of a callable as a non-shared service, you will receive a clone of that instance upon request. Service defaul to shared.
+Additionally, Configulator has the notion of shared and non-shared services. A shared service is a singleton instance of the service object which is lazy-instantiated on the first request for it and cached for future calls. A non-shared service returns a new instance from the factory callable on every request for it. If you register an pre-fabricated instance instead of a callable as a non-shared service, you will receive a clone of that instance upon request. Services default to shared.
+
+Services are first registered with the `register()` method and then created and retrieved by calling the method corresponding to their name.
+
+```php
+Configulator()->register('mongodb', function($databaseName = null) {
+    if ($databaseName) {
+        return (new MongoClient)->$databaseName;
+    }
+    return new MongoClient;
+});
+
+$mongo = Configulator()->mongodb();
+
+Configulator()->register('mailer', function($configulator) {
+    $transport = Swift_SmtpTransport::newInstance($configulator["smtp_host"], $configulator["smtp_port"]);
+    return Swif_Mailer::newInstance($transport);
+}, false);
+
+$mailer = Configulator()->mailer();
+
+```
