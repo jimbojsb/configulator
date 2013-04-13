@@ -32,11 +32,10 @@ All of the remaining examples use this syntax, though the functionality is the s
 
 
 ### Loading config options
-Configulator supports 5 ways to populate it's internal storage with configuration data. You can either directly pass an array of options, or you can load options from one of the following file formats:
+Configulator supports 4 ways to populate it's internal storage with configuration data. You can either directly pass an array of options, or you can load options from one of the following file formats:
 * [PHP Array include](https://github.com/jimbojsb/configulator/blob/master/tests/resources/test_config.php)
 * [JSON](https://github.com/jimbojsb/configulator/blob/master/tests/resources/test_config.json)
 * [YAML](https://github.com/jimbojsb/configulator/blob/master/tests/resources/test_config.yml)
-* [INI](https://github.com/jimbojsb/configulator/blob/master/tests/resources/test_config.ini)
 
 When loading from a file, you have the option of using "configuration profiles", which would like be tied to your environment, such as "production" or "development". All configuration file types support inheritance of other profiles defined within the file.
 
