@@ -1,11 +1,6 @@
 <?php
 namespace Configulator;
 
-use Configulator\ConfigFile\Php,
-    Configulator\ConfigFile\Yaml,
-    Configulator\ConfigFile\Ini,
-    Configulator\ConfigFile\Json;
-
 class Manager implements \ArrayAccess
 {
     protected $options;
@@ -49,7 +44,7 @@ class Manager implements \ArrayAccess
 
     public function register($serviceName, $service, $shared = true)
     {
-        $this->services[$serviceName] = ['service' => $service, 'shared' => $shared];
+        $this->services[$serviceName] = array('service' => $service, 'shared' => $shared);
     }
 
     public function release($serviceName)

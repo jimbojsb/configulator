@@ -46,9 +46,9 @@ class ConfigFile
             if ($inherit) {
                 unset($profileOptions['inherit']);
                 if (!is_array($inherit)) {
-                    $inherit = [$inherit];
+                    $inherit = array($inherit);
                 }
-                $resolvedOptions = [];
+                $resolvedOptions = array();
                 foreach ($inherit as $inheritedProfile) {
                     $resolvedOptions = array_replace_recursive($resolvedOptions, $options[$inheritedProfile]);
                 }
