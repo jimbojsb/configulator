@@ -54,7 +54,7 @@ class Manager implements \ArrayAccess
 
     public function offsetExists($offset)
     {
-        return isset($this->config);
+        return isset($this->options[$offset]);
     }
 
     public function offsetGet($offset)
