@@ -83,6 +83,16 @@ $mailer = Configulator()->mailer();
 
 ```
 
+### Local Override Files
+Often times, it may be necessary to use a local file that isn't committed into source control to override some existing values from the core file. Using a local file will override matching values from any location, regardless of environment. This override is processed before inheritance an environment settings are resolved.
+
+Use the optional 3rd argument for Configulator\Manager::loadFile to pass a local file path.
+
+```php
+Configulator()->loadFile('/path/to/myconfig.yml', 'development', '/path/to/local_myconfig.yml');
+```
+
+
 ## Contributing
 Pull requests are welcome, but should not materially expand the scope of the project.
 
