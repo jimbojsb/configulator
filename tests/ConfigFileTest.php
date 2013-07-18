@@ -26,6 +26,7 @@ class ConfigFileTest extends PHPUnit_Framework_TestCase
 
         foreach ([$phpOptions, $ymlOptions, $jsonOptions] as $options) {
             $this->assertEquals('value8', $options['key1']);
+            $this->assertEquals('value8', $options['key3'][0]);
         }
     }
 }

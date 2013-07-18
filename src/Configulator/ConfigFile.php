@@ -26,7 +26,7 @@ class ConfigFile
                     throw new \InvalidArgumentException("File type " . $f->getExtension() . " not supported");
             }
 
-            if ($localFile) {
+            if (is_array($localOptions) && count($localOptions)) {
                 $options = array_replace_recursive($standardOptions, $localOptions);
             } else {
                 $options = $standardOptions;
