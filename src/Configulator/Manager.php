@@ -37,9 +37,9 @@ class Manager implements \ArrayAccess
         $this->options = $options;
     }
 
-    public function loadFile($file, $profile = null)
+    public function loadFile($file, $profile = null, $localFile = null)
     {
-        $this->options = ConfigFile::getOptions($file, $profile);
+        $this->options = ConfigFile::getOptions($file, $profile, $localFile);
     }
 
     public function register($serviceName, $service, $shared = true)

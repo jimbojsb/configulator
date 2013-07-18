@@ -3,25 +3,35 @@ namespace Configulator;
 
 class ConfigFile
 {
-    public static function getOptions($file, $profile = null)
+    public static function getOptions($file, $profile = null, $localFile = null)
     {
         if (file_exists($file)) {
             $f = new \SplFileObject($file);
             switch ($f->getExtension()) {
                 case "php":
-                    $options = include $file;
+                    $standardOptions = include $file;
+                    $localOptions = include $localFile;
                     break;
                 case "yaml":
                 case "yml":
                     $parser = new \Symfony\Component\Yaml\Parser();
-                    $options = $parser->parse(file_get_contents($file));
+                    $standardOptions = $parser->parse(file_get_contents($file));
+                    $localOptions = $parser->parse(file_get_contents($localFile));
                     break;
                 case "json":
-                    $options = json_decode(file_get_contents($file), true);
+                    $standardOptions = json_decode(file_get_contents($file), true);
+                    $localOptions = json_decode(file_get_contents($localFile), true);
                     break;
                 default:
                     throw new \InvalidArgumentException("File type " . $f->getExtension() . " not supported");
             }
+
+            if ($localFile) {
+                $options = array_replace_recursive($standardOptions, $localOptions);
+            } else {
+                $options = $standardOptions;
+            }
+
 
             if (!is_array($options)) {
                 throw new \RuntimeException("Found no usable data in $file");

@@ -73,5 +73,4 @@ class ConfigulatorTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals('bar', $m->testService1()->foo);
     }
-
 }
