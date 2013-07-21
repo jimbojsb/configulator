@@ -10,17 +10,23 @@ class ConfigFile
             switch ($f->getExtension()) {
                 case "php":
                     $standardOptions = include $file;
-                    $localOptions = include $localFile;
+                    if (file_exists($localFile)) {
+                        $localOptions = include $localFile;
+                    }
                     break;
                 case "yaml":
                 case "yml":
                     $parser = new \Symfony\Component\Yaml\Parser();
                     $standardOptions = $parser->parse(file_get_contents($file));
-                    $localOptions = $parser->parse(file_get_contents($localFile));
+                    if (file_exists($localFile)) {
+                        $localOptions = $parser->parse(file_get_contents($localFile));
+                    }
                     break;
                 case "json":
                     $standardOptions = json_decode(file_get_contents($file), true);
-                    $localOptions = json_decode(file_get_contents($localFile), true);
+                    if (file_exists($localFile)) {
+                        $localOptions = json_decode(file_get_contents($localFile), true);
+                    }
                     break;
                 default:
                     throw new \InvalidArgumentException("File type " . $f->getExtension() . " not supported");
