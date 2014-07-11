@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/jimbojsb/configulator.png?branch=master)](https://travis-ci.org/jimbojsb/configulator)
 
+[![Code Climate](https://codeclimate.com/github/jimbojsb/configulator.png)](https://codeclimate.com/github/jimbojsb/configulator)
+
 Configulator is a very lightweight configuation manager and service locator for PHP projects. It is designed to be somewhat of a poor man's dependency injection container in that the service factories are always passed the managed configuration options as well as the service factories themselves, such that one can achieve simple dependency resolution and configuration of common service needs, such as database connections.
 
 ## Getting Configulator
