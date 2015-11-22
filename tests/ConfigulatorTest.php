@@ -73,4 +73,18 @@ class ConfigulatorTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals('bar', $m->testService1()->foo);
     }
+
+    public function testAllowMutableOptions()
+    {
+        $m = new Configulator;
+        $m->setOptions(['foo' => 'bar']);
+        try {
+            $m["foo"] = "baz";
+            $this->fail('Should not allow changing of options');
+        } catch (Exception $e) {
+        }
+        $m->setAllowMutableOptions(true);
+        $m["foo"] = "baz";
+        $this->assertEquals("bar", $m["foo"]);
+    }
 }
